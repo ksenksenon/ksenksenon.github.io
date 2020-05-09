@@ -104,9 +104,9 @@ params:
     # option to specify the subtitle in the homepage
     subtitle: Personal blog
     # option to specify image in the homepage
-    image: "/images/avatar.jpg" # worker.svg 
+    image: "/images/ava.png" # worker.svg 
     # option to specify the width of the image in the homepage
-    imageWidth: 500px
+    imageWidth: 400px
 
   # footer options
   footer:
