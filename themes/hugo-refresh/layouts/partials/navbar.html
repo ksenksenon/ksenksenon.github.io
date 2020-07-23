@@ -1,16 +1,18 @@
 <nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
   <div class="container">
-    <div class="navbar-brand">
+    <div class="navbar-brand" style="flex-grow: 1;">
 
       <!-- <div class="navbar-start"> -->
       <!-- <div class="columns"> -->
-      
+
       <a class="navbar-item">
         <div class="menu-icon-wrapper left-menu-icon-wrapper" style="visibility: visible;">
           <svg width="1000px" height="1000px">
-            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800">
+            </path>
             <path class="path2" d="M 300 500 L 700 500"></path>
-            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200">
+            </path>
           </svg>
           <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
         </div>
@@ -18,70 +20,90 @@
           {{ i18n "tags" }}
         </div>
       </a>
-
-      <div class="navbar-item is-expanded"></div>
-      <a class="navbar-item is-hidden-desktop">  
+      <div class="navbar-item is-expanded" style="justify-content: center;">
+        <a href="/" id="home-link" style="height: 34px;">
+          <svg id="home-svg" enable-background="new 0 0 512 512" height="34" viewBox="0 0 512 512" width="34"
+            xmlns="http://www.w3.org/2000/svg" >
+            <g>
+              <path fill="#dc70cb"
+                d="m426 495.983h-340c-25.364 0-46-20.635-46-46v-242.02c0-8.836 7.163-16 16-16s16 7.164 16 16v242.02c0 7.72 6.28 14 14 14h340c7.72 0 14-6.28 14-14v-242.02c0-8.836 7.163-16 16-16s16 7.164 16 16v242.02c0 25.364-20.635 46-46 46z" />
+              <path fill="#dc70cb"
+                d="m496 263.958c-4.095 0-8.189-1.562-11.313-4.687l-198.989-198.987c-16.375-16.376-43.02-16.376-59.396 0l-198.988 198.988c-6.248 6.249-16.379 6.249-22.627 0-6.249-6.248-6.249-16.379 0-22.627l198.988-198.989c28.852-28.852 75.799-28.852 104.65 0l198.988 198.988c6.249 6.249 6.249 16.379 0 22.627-3.123 3.125-7.218 4.687-11.313 4.687z" />
+              <path fill="#dc70cb"
+                d="m320 495.983h-128c-8.837 0-16-7.164-16-16v-142c0-27.57 22.43-50 50-50h60c27.57 0 50 22.43 50 50v142c0 8.836-7.163 16-16 16zm-112-32h96v-126c0-9.925-8.075-18-18-18h-60c-9.925 0-18 8.075-18 18z" />
+            </g>
+          </svg>
+        </a>
+        <script>
+          if (window.location.pathname === '/') {
+            document.getElementById('home-link').style.visibility = 'hidden';
+          }
+        </script>
+      </div>
+      <a class="navbar-item is-hidden-desktop">
         <div data-target="navbar-menu" class="navbar-item right-menu-icon-wrapper is-hidden-desktop">
           {{ i18n "mainMenu" }}
         </div>
         <div data-target="navbar-menu" class="menu-icon-wrapper right-menu-icon-wrapper" style="visibility: visible;">
           <svg width="1000px" height="1000px">
-            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800"></path>
+            <path class="path1" d="M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800">
+            </path>
             <path class="path2" d="M 300 500 L 700 500"></path>
-            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200"></path>
+            <path class="path3" d="M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200">
+            </path>
           </svg>
           <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
         </div>
       </a>
     </div>
 
-    
 
-    <div id="navbar-menu" class="navbar-menu is-static">
+
+    <div id="navbar-menu" style="flex-grow: 0;" class="navbar-menu is-static">
       <!-- <div class="navbar-start"></div> -->
       <div class="navbar-end">
         {{- $home    := .Site.Params.homepage.linkPosition -}}
-        {{/*  {{- if or (eq $home "menu") (eq $home "menu+footer") -}}  */}}
+        {{/*  {{- if or (eq $home "menu") (eq $home "menu+footer") -}} */}}
         {{ if or (eq $home "menu") (eq $home "menu+footer") }}
-          <a href="{{ "/" | relLangURL }}" class="navbar-item is-secondary">
-            {{- if .Site.Params.homepage.linkText -}}
-              {{- print .Site.Params.homepage.linkText -}}
-            {{- else -}}
-              {{ i18n "homepage" }}
-            {{- end -}}
-          </a>
+        <a href="{{ "/" | relLangURL }}" class="navbar-item is-secondary">
+          {{- if .Site.Params.homepage.linkText -}}
+          {{- print .Site.Params.homepage.linkText -}}
+          {{- else -}}
+          {{ i18n "homepage" }}
+          {{- end -}}
+        </a>
         {{- end -}}
         {{ range .Site.RegularPages }}
-          {{- if eq .Params.showInMenu true -}}
-          <a href="{{- .Permalink | relURL -}}" class="navbar-item is-secondary">
-            {{- .Title -}}
-          </a>
-          {{- end -}}
+        {{- if eq .Params.showInMenu true -}}
+        <a href="{{- .Permalink | relURL -}}" class="navbar-item is-secondary">
+          {{- .Title -}}
+        </a>
+        {{- end -}}
         {{- end -}}
         {{- range .Site.Sections -}}
-          {{- if not (eq .Title "singles") -}}
-          {{- $secCount := len .Sections -}}
-          {{- if (ne $secCount 0) }}
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a href="{{- .Permalink | relURL -}}" class="navbar-link">
-              {{- .Title -}}
-            </a>
-            <div class="navbar-dropdown">
-              <!-- <a href="{{- .Permalink -}}" class="navbar-item">
-                > All
-              </a> -->
-              {{- range .Sections -}}
-              <a href="{{- .Permalink | relURL -}}" class="navbar-item">
-                {{- .Title -}}
-              </a>
-              {{- end -}}
-            </div>
-          </div>
-          {{- else -}}
-          <a href="{{- .Permalink | relURL -}}" class="navbar-item is-secondary">
+        {{- if not (eq .Title "singles") -}}
+        {{- $secCount := len .Sections -}}
+        {{- if (ne $secCount 0) }}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="{{- .Permalink | relURL -}}" class="navbar-link">
             {{- .Title -}}
           </a>
-          {{- end -}}
+          <div class="navbar-dropdown">
+            <!-- <a href="{{- .Permalink -}}" class="navbar-item">
+                > All
+              </a> -->
+            {{- range .Sections -}}
+            <a href="{{- .Permalink | relURL -}}" class="navbar-item">
+              {{- .Title -}}
+            </a>
+            {{- end -}}
+          </div>
+        </div>
+        {{- else -}}
+        <a href="{{- .Permalink | relURL -}}" class="navbar-item is-secondary">
+          {{- .Title -}}
+        </a>
+        {{- end -}}
         {{- end -}}
         {{- end -}}
       </div>

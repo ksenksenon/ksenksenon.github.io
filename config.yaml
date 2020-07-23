@@ -106,7 +106,7 @@ params:
     # option to specify image in the homepage
     image: "/images/ava.png" # worker.svg 
     # option to specify the width of the image in the homepage
-    imageWidth: 400px
+    imageWidth: 300px
 
   # footer options
   footer:
