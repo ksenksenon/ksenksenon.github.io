@@ -2,7 +2,7 @@
 title: "Раздельный сбор мусора"
 date: 2020-07-23T01:23:27+05:00
 draft: false
-summary: ""
+summary: "Первые шаги к осознанному потреблению"
 summaryImage: "1.jpg"
 ---
 
